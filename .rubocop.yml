@@ -320,6 +320,8 @@ Rails/CompactBlank: # new in 2.13
   Enabled: true
 Rails/DangerousColumnNames: # new in 2.21
   Enabled: true
+  Exclude:
+    - 'db/migrate/20250410011947_create_rodauth_otp.rb'
 Rails/DeprecatedActiveModelErrorsMethods: # new in 2.14
   Enabled: true
 Rails/DotSeparatedKeys: # new in 2.15

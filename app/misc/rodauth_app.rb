@@ -14,6 +14,8 @@ class RodauthApp < Rodauth::Rails::App
 
     rodauth.require_authentication if r.path.start_with?('/posts')
 
+    rodauth.require_two_factor_authenticated if rodauth.uses_two_factor_authentication?
+
     # ==> Authenticating requests
     # Call `rodauth.require_account` for requests that you want to
     # require authentication for. For example:
