@@ -8,7 +8,7 @@ class RodauthMain < Rodauth::Rails::Auth
     enable :create_account, :verify_account, :verify_account_grace_period,
            :login, :logout, :remember,
            :reset_password, :change_password, :change_login, :verify_login_change,
-           :close_account
+           :close_account, :otp
 
     # See the Rodauth documentation for the list of available config options:
     # http://rodauth.jeremyevans.net/documentation.html
@@ -144,6 +144,11 @@ class RodauthMain < Rodauth::Rails::Auth
 
     # Redirect to login page after password reset.
     reset_password_redirect { login_path }
+
+    # don't show error message when redirected after login
+    two_factor_need_authentication_error_flash { flash[:notice] == login_notice_flash ? nil : super() }
+    # show generic authentication message
+    two_factor_auth_notice_flash { login_notice_flash }
 
     # ==> Deadlines
     # Change default deadlines for some actions.
