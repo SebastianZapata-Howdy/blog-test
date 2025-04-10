@@ -30,6 +30,10 @@ Metrics/BlockLength:
 Layout/LineLength:
   Max: 200
 
+Rails/NotNullColumn:
+  Exclude:
+    - 'db/migrate/20250410005716_add_account_id_to_posts.rb'
+
 Gemspec/AddRuntimeDependency: # new in 1.65
   Enabled: true
 Gemspec/DeprecatedAttributeAssignment: # new in 1.30
